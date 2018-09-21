@@ -7,7 +7,7 @@
 body {
     color: #555;
     font-family: Open Sans;
-    font-size: 16px;
+    font-size: 20px;
     height: 100vh;
     font-weight: 400;
 }
@@ -19,7 +19,8 @@ body {
 .grid-top {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 2fr 80px;
+    grid-gap: 20px;
 }
 
 .grid-budget-month {
@@ -30,16 +31,33 @@ body {
 
 .grid-inc-month {
     grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 10px;
+    background-color: #478742;
 }
 
 .grid-exp-month {
     grid-column: 3;
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    margin-bottom: 10px;
+    background-color: #FF5049;
+}
+
+.amount-right {
+    grid-column: 2;
+    justify-self: end;
+    align-self: center;
+    color: #fff;
+    padding: 12px;
 }
 
 .top {
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(img/bg.jpg);
     background-size: cover;
     background-position: center;
+    height: 250px;
 }
 
 .budget {
@@ -47,8 +65,7 @@ body {
 }
 
 .budget__title {
-    font-size: 18px;
-    text-align: center;
+    font-size: 25px;
     margin-bottom: 10px;
     font-weight: 300;
 }
@@ -65,33 +82,21 @@ body {
 .budget__expenses {
     padding: 12px;
     text-transform: uppercase;
-}
-
-.budget__income {
-    margin-bottom: 10px;
-    background-color: #478742;
-}
-
-.budget__expenses {
-    background-color: #FF5049;
-}
-
-.budget__income--text,
-.budget__expenses--text {
-    font-size: 13px;
-    color: #444;
-    margin-top: 2px;
+    color: #fff;
 }
 
 .budget__income--value,
 .budget__expenses--value {
     letter-spacing: 1px;
+    font-size: 125%;
 }
 
 .budget__income--percentage,
 .budget__expenses--percentage {
-    width: 34px;
-    font-size: 11px;
+    align-self: center;
+    margin: 12px;
+    color: #fff;
+    font-size: 16px;
     padding: 3px 0;
     margin-left: 10px;
 }
@@ -172,11 +177,12 @@ body {
 .container {
     width: 1000px;
     margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .income {
     width: 475px;
-    margin-right: 50px;
 }
 
 .expenses {
@@ -187,7 +193,6 @@ h2 {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 15px;
 }
 
 .icome__title { color: #478742; }
@@ -196,16 +201,22 @@ h2 {
 .item {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
+    display: grid;
+    grid-template-areas: "desc value perc del";
+    grid-template-columns: 2fr 1fr auto auto;
+    grid-gap: 5px;
 }
 
 .item:first-child { border-top: 1px solid #e7e7e7; }
 .item:nth-child(even) { background-color: #f7f7f7; }
 
 .item__description {
-    /* float: left; */
+    grid-area: desc;
 }
 
 .item__value {
+    grid-area: value;
+    justify-self: end;
     transition: transform 0.3s;
 }
 
@@ -218,11 +229,12 @@ h2 {
     border-radius: 3px;
     width: 32px;
     text-align: center;
+    grid-area: perc;
 }
 
 .income .item__value,
 .income .item__delete--btn {
-    color: #28B9B5;
+    color: #478742;
 }
 
 .expenses .item__value,
@@ -233,7 +245,7 @@ h2 {
 
 
 .item__delete {
-    /* float: left; */
+    grid-area: del;
 }
 
 .item__delete--btn {
@@ -241,18 +253,16 @@ h2 {
     background: none;
     border: none;
     cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
     line-height: 1;
-    display: none;
+    visibility: hidden;
 }
 
 .item__delete--btn:focus { outline: none; }
 .item__delete--btn:active { transform: translateY(2px); }
 
-.item:hover .item__delete--btn { display: block; }
-.item:hover .item__value { transform: translateX(-20px); }
-.item:hover .item__percentage { transform: translateX(-20px); }
+.item:hover .item__delete--btn { visibility: visible; }
+/* .item:hover .item__value { transform: translateX(-20px); } */
+/* .item:hover .item__percentage { transform: translateX(-20px); } */
 
 
 .unpaid {

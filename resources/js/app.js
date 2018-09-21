@@ -173,11 +173,11 @@ var UIController = (function () {
            // create the html with placeholder for list entries
            if (type === 'inc') {
                element = DOMstrings.incomeContainer;
-               html = '<div class="item" id="inc-%id%"><div class="">%desc%</div><div class=""><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+               html =  '<div class="item" id="inc-%id%"><div class="item__description">%desc%</div><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div>';
            }
            else if (type === 'exp') {
                element = DOMstrings.expensesContainer;
-               html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+               html = '<div class="item" id="exp-%id%"><div class="item__description">%desc%</div><div class="item__value">%value%</div><div class="item__percentage"></div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div>';
            }
            // create the new html string that will be loaded on the page
            new_html = html.replace('%id%', entry.id);
