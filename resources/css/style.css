@@ -6,6 +6,7 @@
 
 body {
     color: #555;
+    background-color: #f0e6e6;
     font-family: Open Sans;
     font-size: 20px;
     height: 100vh;
@@ -201,6 +202,7 @@ h2 {
 .item {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
+    transition: background .2s ease-in;
     display: grid;
     grid-template-areas: "desc value perc del";
     grid-template-columns: 2fr 1fr auto auto;
@@ -261,10 +263,10 @@ h2 {
 .item__delete--btn:active { transform: translateY(2px); }
 
 .item:hover .item__delete--btn { visibility: visible; }
-/* .item:hover .item__value { transform: translateX(-20px); } */
-/* .item:hover .item__percentage { transform: translateX(-20px); } */
-
-
+.item:hover {
+    background-color: #adcbf1;
+    border-radius: 10px;
+}
 .unpaid {
     background-color: #FFDAD9 !important;
     cursor: pointer;
